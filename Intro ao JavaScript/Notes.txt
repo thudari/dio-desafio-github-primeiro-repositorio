@@ -1,0 +1,50 @@
+JavaScript 
+a) variáveis e operadores
+Variável (let variavel - pode ser reatribuída) vs Constante (const - não pode ser reatribuída)
+Operadores (+ - / *)
+CTRL + ' = abre terminal
+Usar formato camelCase
+/* Usar para comentar
+*/
+Utilizar pontuação em padrão norte-americano
+Separar o código em trechos lógicos (p.e. entradas vs saídas)
+
+Desafio: Faça um programa para calcular o valor de uma viagem.
+Você terá 3 variáveis. Sendo elas:
+ 1 - Preço do combustível;
+ 2 - Gasto médio de combustível do carro por km;
+ 3 - Distância em km da viagem;
+
+Imprima no console o valor que será gasto para realizar esta viagem.
+
+b) condicionais
+Boolean é a var que representa V ou F (binário 0 ou 1)
+Usar === para comparar em igualdade
+Operador Se
+if (condição) {
+    executa este bloco;
+}
+
+Oposto ficaria:
+if (!condição) {
+    executa este bloco;
+}
+
+Ou ainda:
+if (condição) {
+    executa este bloco;
+} else {
+    executa outro bloco;
+}
+
+Composição:
+if (condição) {
+    executa este bloco;
+} else if {
+    executa outro bloco;
+} else {
+    executa outro bloco;
+}
+
+Math.pow => lib de matemática, onde pow é método estático e Math 
+é uma classe.
