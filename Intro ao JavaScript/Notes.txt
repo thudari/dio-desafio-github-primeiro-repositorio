@@ -1,8 +1,11 @@
 JavaScript 
+
 a) variáveis e operadores
+
 Variável (let variavel - pode ser reatribuída) vs Constante (const - não pode ser reatribuída)
 Operadores (+ - / *)
 CTRL + ' = abre terminal
+Palavra reservada fica em rosa.
 Usar formato camelCase
 /* Usar para comentar
 */
@@ -18,6 +21,7 @@ Você terá 3 variáveis. Sendo elas:
 Imprima no console o valor que será gasto para realizar esta viagem.
 
 b) condicionais
+
 Boolean é a var que representa V ou F (binário 0 ou 1)
 Usar === para comparar em igualdade
 Operador Se
@@ -48,3 +52,111 @@ if (condição) {
 
 Math.pow => lib de matemática, onde pow é método estático e Math 
 é uma classe.
+
+c) funções (objeto do tipo função, tb se comportam como valores quanto à manipulação)
+
+Para declarar a função com seus parâmetros sem retorno(procedimento):
+
+function sayMyName(name) {
+   console.log('Your name is: ' + name);
+}
+
+Para invocar a função:
+
+sayMyName('Thais');
+
+Exemplo de função com retorno(vai devolver um número):
+
+function quadrado(valor) {
+   return valor*valor;
+}
+
+Declarar função main() para separar código principal das funções auxiliares:
+
+function main() {
+   console.log('Programa principal');
+   calcularJuros();
+}
+
+main();
+
+Função anônima imediatamente declarada (só existe dentro do parênteses):
+
+//Main
+
+(function () {
+   const peso = 75;
+   const altura = 1.75;
+
+const imc = calcularImc(peso, altura);
+   console.log(classificarIMC(imc));
+})();
+
+d) objetos e classes
+
+Um objeto literal é uma coleção de dados (coleção dinâmica de chave, valor) => alusão direta a um map.
+
+const thais = {
+    nome: 'Thais H.',
+    idade: 25
+};
+
+Acesso direto:
+
+console.log(thais.nome);
+console.log(thais.idade);
+console.log(thais);
+
+Posso incrementar o objeto dinamicamente:
+
+thais.altura = 1.65;
+console.log(thais);
+
+Uma função dentro de um objeto é chamada de método.
+
+const pessoa = {
+    nome: 'Thais H.',
+    idade: 25,
+
+    descrever: function () {
+	  console.log('Meu nome é ${this.nome} e minha idade é ${this.idade}')
+    }
+};
+
+pessoa.descrever();
+
+O this assume o contexto do objeto em que está presente e serve para referenciar somente os atributos de um objeto.
+Se o parâmetro de uma função criada não for um atributo do objeto, tal par não deve ser referido com this.
+
+Posso acessar através do atributo de forma mais dinâmica:
+
+const atributo = 'idade';
+console.log(pessoa[atributo]);
+
+Para evitar repetição de código e garantir padronização, cria-se um modelo do objeto que passa a ser chamado de classe.
+Como definir um modelo de pessoa? Vai definir pessoa pra que ela possa ser instanciada.
+Assim, classe é uma definição (Contrato do que deve ser aquele objeto) e instância é uma ocorrência do objeto de acordo com o contrato definido na classe.
+
+class Pessoa {
+    nome;
+    idade;
+    anoDeNascimento;
+
+    constructor(nome, idade) {
+        this.nome = nome;
+        this.idade = idade;
+        this.anoDeNascimento = 2022 - idade;
+    }
+
+    descrever() {
+	 console.log('Meu nome é ${this.nome} e minha idade é ${this.idade}');
+    }
+}
+
+Obs: this.nome é uma variável do contexto do objeto Pessoa, isto é, atributo do objeto Pessoa. Apenas o nome é uma var local cujo valor é passado para o atributo nome, referido como this.nome.
+
+const thais = new Pessoa();
+thais.nome: 'Thais H.';
+thais.idade: 25;
+
+O construtor obriga a definição dos parâmetros e novos atributos a partir de deduções.
