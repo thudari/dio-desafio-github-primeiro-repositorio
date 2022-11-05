@@ -160,3 +160,95 @@ thais.nome: 'Thais H.';
 thais.idade: 25;
 
 O construtor obriga a definição dos parâmetros e novos atributos a partir de deduções.
+
+e) listas
+
+Listas armazenam coleção de dados de forma direta e são representadas em []. A lista pode começar vazia.
+Posso ter tipos diferentes dentro da minha lista mas não é usual que isso ocorra.
+
+const alunos = ['João', 'Vitor', 'Marina'];
+console.log(alunos[0]);
+console.log(alunos[1]);
+console.log(alunos[2]);
+
+alunos.push('Renan'); adiciona dinamicamente o Renan
+alunos[4] = 'Vinicius'; adiciona diretamente na posição
+
+alunos.pop(); pega o último e remove da lista
+alunos.shift(); pega o primeiro e remove da lista
+
+const notas = [5,7,8,2,5];
+notas.length; mostra o tamanho da lista
+
+f) Estruturas de repetição
+
+Percorrer lista e fazer soma dinamicamente: iterar a lista começando na posição zero até dar um false na condicional.
+
+for (let index = 0; index < array.length; index++){
+	
+}
+
+for (let i = 0; index < 10; index++){
+	console.log(i);
+}
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+Uma string é um array de caracteres.
+
+const nome = 'Vitor Johansen Guerra';
+for (let i = 0; index < 10; index++){
+	letra = nome[i];
+        console.log(letra);
+}
+
+let soma = 0;
+for (let i = 0; index < 10; index++){
+	const nota = notas[i];
+        soma = soma + nota;
+}
+
+const media = soma/notas.length;
+console.log(media);
+
+g) depurar código no Visual Code
+
+Executar e depurar => CTRL + shift + D
+F5 e F10
+
+h) importação e exportação com JS
+
+Arquivo 1: funcoes-auxiliares.js
+
+function gets() {
+	return 10;
+}
+
+function print(texto){
+	console.log(texto);
+}
+
+module.exports = { gets, print };
+
+Arquivo 2: main.js
+
+const funcoes = require('./funcoes-auxiliares');
+ou
+
+Conceito destructuring:
+const {gets, print} = require('./funcoes-auxiliares');
+
+console.log(funcoes.gets());
+ou 
+print(gets());
+
+

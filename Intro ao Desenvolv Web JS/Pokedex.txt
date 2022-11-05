@@ -1,0 +1,35 @@
+Projeto Pokedex
+
+1) JS Node instalado.
+2) npm install -g http-server
+3) npm install touch-cli -g
+4) comando linux touch index.html no terminal BASH
+
+No arquivo index.html:
+
+escrever html:5
+- alterar idioma e título
+
+Página rola por trás de um servidor http => comando linux fica: http-server ./ (vai rodar a pasta servindo como servidor)
+
+Modelo Cliente-Servidor no http-server: ler padrão IP-Porta:
+No browser, entrar com 127.0.0.1:8080/index.html (por padrão ele busca o index mesmo se o arquivo não for especificado) 
+=> cliente faz requisição deste arquivo, daí o servidor encontra o file, processa e devolve a resposta.
+
+HTML é uma linguagem de marcação de texto (é um conjunto de tags html). Marca o texto, dando significado para aquele texto.
+O style coloca-se no head.
+O script vai ao final do bloco body. O obejto window é usado para manipular o browser. O document é o documento corrente.
+
+O console do site é uma ferramenta de depuração.
+
+
+CSS (Cascading Style Sheets) é o estilo do nosso texto. É um sistema em cascata.
+
+Javascript para desenvolvimento web: dá o comportamento para este HTML, faz ações dentro da página. Ex: click no botão
+
+Instalar cdn global normalize para CSS ficar igual em todos os navegadores: Copiar cdn normalize CSS no index.html
+Marcar o disable cache na network das ferramentas do desenvolvedor.
+
+Organizar projeto em /assets/js/main.js e /assets/css/global.css
+Instalar o cdn global da fonte: Pegar link CSS para font roboto em https://fonts.google.com/specimen/Roboto 
+
