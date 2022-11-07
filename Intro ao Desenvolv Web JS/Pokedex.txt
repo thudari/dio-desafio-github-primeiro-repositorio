@@ -25,7 +25,7 @@ O console do site é uma ferramenta de depuração.
 
 CSS (Cascading Style Sheets) é o estilo do nosso texto. É um sistema em cascata.
 
-Javascript para desenvolvimento web: dá o comportamento para este HTML, faz ações dentro da página. Ex: click no botão
+Javascript para desenvolvimento web: dá o comportamento para este HTML, faz ações dentro da página. Ex: click no botão.
 
 Instalar cdn global normalize para CSS ficar igual em todos os navegadores: Copiar cdn normalize CSS no index.html
 Marcar o disable cache na network das ferramentas do desenvolvedor.
@@ -33,3 +33,86 @@ Marcar o disable cache na network das ferramentas do desenvolvedor.
 Organizar projeto em /assets/js/main.js e /assets/css/global.css
 Instalar o cdn global da fonte: Pegar link CSS para font roboto em https://fonts.google.com/specimen/Roboto 
 
+Aplicar Modelo mobile first => estilo voltado para pg pequena (mais simples) faz o grau de reescrita de code ser menor.
+Na ferramenta de desenvolvedor, selecionar modo mobile e dimensão Pixel 5. Depois select one element to inspect. Copiar a formatação para arquivo global.css
+
+No arquivo global.css, 1rem significa o uso de uma medida flexível.
+
+Media query css = conjunto de CSS que vai ser aplicado no tamanho da tela
+Programar primeiro para a menor tela possível e depois para telas maiores.
+
+CDN: rede de servidores interligados com o objetivo de fornecer conteúdo da forma mais rápida, barata, confiável e segura possível.
+COMANDO HTTP-SERVER: para desenvolvimento local de sites, é uma ferramenta bem legal para fazer testes e visualizar como o website ficará quando estiver hospedado
+
+API: é servidor que está servindo dados pra gente (objetos na forma de json). Algumas APIs rodam em cima de uma requisição HTTP
+Estudar sobre o protocolo HTTP! É um protocolo cliente-servidor.
+Em network da ferramenta do desenvolvedor, conseguimos observar a conversa entre o cliente (browser) e o servidor. Em header temos a requisição do cliente para o servidor e em preview temos a resposta com results do servidor para cliente.
+
+Requisição HTTP do cliente:
+
+1) URL Path: vai dizer qual é o IP e Porta do servidor
+URL: https://pokeapi.co/api/v2/pokemon
+     ${IP ou endereço}/{path = caminho de identificação do recurso}	
+IP: https://pokeapi.co (um servidor de DNS sabe converter este domínio para um IP)
+    https://127.0.0.1:8080
+Path: /api/v2/pokemon (quero deste servidor da api na versão 2 o recurso chamado pokemon) 
+
+Estou solicitando do servidor uma listagem de pokemons!
+
+2) Request Method (Tipo de solicitação)
+Request Method: GET | POST | PUT | DELETE | PATCH etc
+Cada tipo significa uma forma de pedido ao servidor quanto ao que deve ser feito com o recurso. O GET funciona como um buscar. Supondo API feita no padrão de projeto REST.
+
+Formas de se passar dados (áreas de transferência de dados):
+a) direto pelo path da url: .../pokemon/1 (detail do pokemon com id = 1)
+b) sintaxe da query string (descrição de busca): path?queryStringChaveValor :  /api/v2/pokemon?type=grass&name=i
+
+type = grass
+name = i
+
+Metadados de cada requisição:
+
+3)Request headers = área para transmitir coisas para servidor
+Configuração da nossa configuração
+
+accept-languages: (elenca prioridade de linguagem)
+pt-BR; q=1
+pt; q=.9
+en-US; q =.8
+en; q = .7
+gl; q = .6
+
+Authorization: (credenciais de autentificação)
+Basic, Bearer etc
+
+content-type: application/json
+
+4)Request Body (corpo/dado que quero trafegar na requisição/resposta). Para os métodos GET e DELETE não faz sentido ter body...
+
+ex: code para salvar um pokemon novo
+
+Body
+{
+"name": "Teste"
+}
+
+Resposta de servidor:
+1) STATUS CODE: é um número que indica o que ocorreu com nossa requisição. 200 quer dizer sucesso! Estudar os tipos.
+2) Response Headers
+3) Response Body
+
+Fazendo as requisições HTTP pelo JS:
+1) pegar o endpoint que vamos consumir da pokeapi (pokeapi.co)
+2) usar o fetch api => o fetch(url) nos retorna uma Promise<Response>. Quando a gente start uma requisição HTTP, a resposta demora x tempo. É um processamento assincrono (vai ser executado e não tenho a resposta de imediato) e há a promessa de um resultado.
+O método then passa uma função como callback => fetch(url).then(function(response){console.log(response)}
+Promise é uma interface muito importante. Estudar!
+O fetch por padrão usa o GET e retorma uma string.
+functio (response) === (response) => (é a arrow function)
+Encadeamento de then´s para manipular a resposta. 
+Interface de uma Promise tem um bloco then(se der certo), catch(se der erro) e um finally(independente de dar certo ou errado faça).
+
+Manipulando o json de resposta:
+Como debugar? em ferramentas do dev, source, select main.js => marcar linha
+Ou no main.js escrever debugger na linha que desejar parar o código
+1) fazer uma função que converte nossa lista de pokemons em lista no html
+conjunto de Li (list item)
